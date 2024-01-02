@@ -49,19 +49,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
-
-    func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
-        print("continue userActivity in scene")
-        
-        if userActivity.activityType == "tw.com.bk.DeviceOperationActivity" {
-            // Extract parameters and perform actions.
-            guard let deviceName = userActivity.userInfo?["deviceName"] as? String,
-                  let operation = userActivity.userInfo?["operation"] as? String
-            else { return }
-            
-            ViewModel.shared.updateLabel(content: "\(deviceName) with \(operation)")
-            print("application userActivity : deviceName = \(String(describing: deviceName)), operation = \(String(describing: operation))")
-        }
-    }
 }
 

@@ -9,11 +9,11 @@
 	<key>INIntentDefinitionNamespace</key>
 	<string>pxQYkz</string>
 	<key>INIntentDefinitionSystemVersion</key>
-	<string>22F66</string>
+	<string>22G313</string>
 	<key>INIntentDefinitionToolsBuildVersion</key>
-	<string>14E300c</string>
+	<string>15A507</string>
 	<key>INIntentDefinitionToolsVersion</key>
-	<string>14.3.1</string>
+	<string>15.0.1</string>
 	<key>INIntents</key>
 	<array>
 		<dict>
@@ -22,7 +22,7 @@
 			<key>INIntentConfigurable</key>
 			<true/>
 			<key>INIntentDescription</key>
-			<string>也是裝置操作吧</string>
+			<string>嗨起來</string>
 			<key>INIntentDescriptionID</key>
 			<string>4RpCr2</string>
 			<key>INIntentLastParameterTag</key>
@@ -194,7 +194,7 @@
 				</array>
 			</dict>
 			<key>INIntentTitle</key>
-			<string>測試專案操作</string>
+			<string>帶我去找夜生活</string>
 			<key>INIntentTitleID</key>
 			<string>LY8rAc</string>
 			<key>INIntentType</key>

@@ -8,6 +8,7 @@
 import UIKit
 import Combine
 import Intents
+import RealmSwift
 
 class ViewController: UIViewController {
     
@@ -28,6 +29,10 @@ class ViewController: UIViewController {
             .store(in: &self.cancellable)
     }
     
+    
+    @IBAction func onClickButton(_ sender: Any) {
+        RealmService.shared.updateDemoData(id: 1, value: UUID().uuidString)
+    }
     
     func donateInteraction(){
         let deviceIntent = SiriDeviceOperationInfoIntent()
