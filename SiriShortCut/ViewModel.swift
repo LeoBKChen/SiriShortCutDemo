@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SiriShortCutCore
 import RealmSwift
 import Combine
 
@@ -21,17 +22,15 @@ class ViewModel {
         self.setupBinding()
     }
     
-    func setupBinding() {
-        let objects = try! Realm().objects(DemoObject.self)
-        
+    func setupBinding() {     
         RealmService.shared.subscribeDemoDataChanges()
             .sink { [weak self] in
                 
                 guard let self = self else { return }
                 
-                if let object = $0.first {
-                    self.labelTest = object.value
-                    print(object.value)
+                if let model = $0.first {
+                    self.labelTest = model.value
+                    print(model.value)
                 }
             }
             .store(in: &self.cancellable)

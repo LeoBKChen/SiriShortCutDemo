@@ -8,6 +8,7 @@
 import UIKit
 import CoreData
 import Intents
+import SiriShortCutCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {

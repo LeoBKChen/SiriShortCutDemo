@@ -7,6 +7,7 @@
 
 import Foundation
 import Intents
+import SiriShortCutCore
 
 class SiriDeviceOperationInfoIntentHandler: NSObject, SiriDeviceOperationInfoIntentHandling {
     
@@ -19,14 +20,13 @@ class SiriDeviceOperationInfoIntentHandler: NSObject, SiriDeviceOperationInfoInt
             return
         }
 
-        let activity = NSUserActivity(activityType: "tw.com.bk.DeviceOperationActivity")
-
-        activity.addUserInfoEntries(from: [
-            "deviceName" : deviceName,
-            "operation" : operation
-        ])
+        RealmService.configRealm()
         
-        completion(SiriDeviceOperationInfoIntentResponse(code: .continueInApp, userActivity: activity))
+        let originalRealmValue = RealmService.shared.getDemoData().first?.value ?? "nil"
+        let newValue = "\(deviceName) \(operation)"
+        RealmService.shared.updateDemoData(id: 1, value: newValue)
+        
+        completion(.success(result: "將\(originalRealmValue)改為\(newValue)"))
     }
     
     // result type: https://developer.apple.com/documentation/sirikit/resolving_and_handling_intents/resolving_the_parameters_of_an_intent#2864163
